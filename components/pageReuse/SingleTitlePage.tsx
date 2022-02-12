@@ -83,7 +83,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
           ></iframe>
         </div>
       ) : (
-        <div className="flex h-[30rem] justify-between w-full flex-wrap">
+        <div className="flex h-[30rem] justify-between w-full flex-wrap mb-[10rem]">
           <iframe
             src={`https://fsapi.xyz/tmdb-movie/${id}`}
             frameBorder="0"
@@ -101,8 +101,9 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
           ></iframe>
         </div>
       )}
-
-      <VerticalCardCarousel dataList={similarTitlesList} name={`Similar ${isTV ? 'Shows' : 'Movies'}`} />
+      <div className="pt-[10rem]">
+        <VerticalCardCarousel dataList={similarTitlesList} name={`Similar ${isTV ? 'Shows' : 'Movies'}`} />
+      </div>
     </>
   );
 };

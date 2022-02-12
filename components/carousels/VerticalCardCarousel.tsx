@@ -11,7 +11,7 @@ const VerticalCardCarousel = ({ dataList, name }: VerticalCardCarouselProps) => 
   const { next, prev, sliderRef, pos, leftDisable, rightDisable } = useCarousel(false);
 
   return (
-    <div ref={sliderRef} className="keen-slider relative mt-3 rounded-md">
+    <div ref={sliderRef} className="keen-slider mt-[20rem] relative  rounded-md">
       <p className="absolute z-30 text-xl font-semibold">{name}</p>
       <ArrowBtn direction="Previous" onPress={prev} shouldDisable={leftDisable} />
       {dataList.map((i, j) => (
