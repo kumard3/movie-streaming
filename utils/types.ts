@@ -4,6 +4,16 @@ export interface ITitleDetails {
   coverImg: string;
   year: number;
   categories: string[];
+  description: string;
+  id: number;
+  mediaType: 'movies' | 'tv';
+}
+export interface ITitleShowDetails {
+  title: string;
+  posterImg: string;
+  coverImg: string;
+  year: number;
+  categories: string[];
   seasons: string[];
   description: string;
   id: number;

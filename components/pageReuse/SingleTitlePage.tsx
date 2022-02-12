@@ -1,5 +1,7 @@
-import { useState } from 'react';
+/* eslint-disable jsx-a11y/iframe-has-title */
+/* eslint-disable react/jsx-key */
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import { textClass } from '../../utils';
 import { SingleTitlePageProps } from '../../utils/types';
@@ -20,7 +22,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
   if (router.isFallback) {
     return <PagePlaceHolder />;
   }
-
+  //@ts-ignore
   const { title, description, id, seasons } = singleTitleDetails;
 
   return (

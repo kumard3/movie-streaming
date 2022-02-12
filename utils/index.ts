@@ -5,14 +5,15 @@ export const iconButtonClass = 'ml-3 p-2 border border-inputPlaceholder hover:bg
 export const arrowBtnClass = 'absolute px-1 py-4 z-50 rounded-md bg-gray-500';
 
 export const gridCardClass = (pos: TCardIndex) =>
-  `relative z-10 hover:z-40 group bg-bg2 rounded-md transform transition-transform ease-out lg:hover:scale-125 ${pos === 'first' ? 'lg:hover:translate-x-11%' : pos === 'last' ? 'lg:hover:-translate-x-12%' : ''
+  `relative z-10 hover:z-40 group bg-bg2 rounded-md transform transition-transform ease-out lg:hover:scale-125 ${
+    pos === 'first' ? 'lg:hover:translate-x-11%' : pos === 'last' ? 'lg:hover:-translate-x-12%' : ''
   }`;
 
 export const textClass = 'text-xl font-semibold text-textHighlight';
 
 export const bpLabels = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
 
-export const githubLink = 'https://github.com/kumard3/movie-streaming'
+export const githubLink = 'https://github.com/kumard3/movie-streaming';
 
 export const getCardPos = (currentBPValue: number, index: number): TCardIndex => {
   const end = Array(25)
@@ -78,4 +79,3 @@ export const tvGenres = [
   { id: 10768, name: 'War & Politics' },
   { id: 37, name: 'Western' },
 ];
-
