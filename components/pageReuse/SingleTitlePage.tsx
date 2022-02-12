@@ -34,6 +34,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         <p className={`${textClass} mb-2`}>Overview</p>
         <p>{description}</p>
       </div>
+      <div className="flex flex-col pb-[10rem]">
+
       {isTV ? (
         <>
           {seasons.map((season: any) => {
@@ -83,7 +85,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
           ></iframe>
         </div>
       ) : (
-        <div className="flex h-[30rem] justify-between w-full flex-wrap mb-[10rem]">
+        <div className="flex h-[30rem] justify-between w-full flex-wrap my-[10rem]">
           <iframe
             src={`https://fsapi.xyz/tmdb-movie/${id}`}
             frameBorder="0"
@@ -98,10 +100,13 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
             scrolling="no"
             height="100%"
             width="100%"
+            className="py-10"
           ></iframe>
         </div>
       )}
-      <div className="pt-[10rem]">
+      </div>
+
+      <div className="relative top-[13rem]">
         <VerticalCardCarousel dataList={similarTitlesList} name={`Similar ${isTV ? 'Shows' : 'Movies'}`} />
       </div>
     </>
