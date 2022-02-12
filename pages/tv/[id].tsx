@@ -5,7 +5,7 @@ import { oneShow, similarShows } from '../../utils/apiResp';
 import { SingleTitlePageProps } from '../../utils/types';
 
 const SingleTVShow = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // .log(props);
+  console.log(props);
 
   return <SingleTitlePage isTV={true} {...props} />;
 };

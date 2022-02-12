@@ -18,8 +18,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
     return <PagePlaceHolder />;
   }
 
-  const { title, description } = singleTitleDetails;
-  singleTitleDetails;
+  const { title, description, id } = singleTitleDetails;
+  console.log(singleTitleDetails);
 
   return (
     <>
@@ -30,6 +30,26 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         <p className={`${textClass} mb-2`}>Overview</p>
         <p>{description}</p>
       </div>
+      {isTV ? (
+        ''
+      ) : (
+        <>
+          <iframe
+            src={`https://fsapi.xyz/tmdb-movie/${id}`}
+            frameBorder="0"
+            scrolling="no"
+            className="w-[30rem] h-[30rem] "
+          ></iframe>
+
+          <iframe
+            src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}
+            frameBorder="0"
+            scrolling="no"
+            className="w-[30rem] h-[30rem] "
+          ></iframe>
+        </>
+      )}
+
       <VerticalCardCarousel dataList={similarTitlesList} name={`Similar ${isTV ? 'Shows' : 'Movies'}`} />
     </>
   );
