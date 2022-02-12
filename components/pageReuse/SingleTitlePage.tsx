@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { textClass } from '../../utils';
@@ -12,14 +13,15 @@ interface SingleTitlePageCompProps extends SingleTitlePageProps {
 }
 
 const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: SingleTitlePageCompProps) => {
+  const [tvShowValue, setTvShowValue] = useState<number>(1);
+  const [tvShowSeason, setTvShowSeason] = useState<number>(1);
   const router = useRouter();
 
   if (router.isFallback) {
     return <PagePlaceHolder />;
   }
 
-  const { title, description, id } = singleTitleDetails;
-  console.log(singleTitleDetails);
+  const { title, description, id, seasons } = singleTitleDetails;
 
   return (
     <>
@@ -31,23 +33,71 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         <p>{description}</p>
       </div>
       {isTV ? (
-        ''
-      ) : (
         <>
+          {seasons.map((season: any) => {
+            return (
+              <div className="flex flex-col ">
+                <span>episode_count {season.episode_count}</span>
+                <span>.season_number {season.season_number} </span>
+                <span>name {season.name} </span>
+              </div>
+            );
+          })}
+          <div className="flex flex-col">
+            <input
+              type="number"
+              value={tvShowValue}
+              className="text-black"
+              onChange={e => setTvShowValue(parseInt(e.target.value as string))}
+            />{' '}
+            <span>Enter the number of episode</span>
+            <input
+              type="number"
+              value={tvShowSeason}
+              className="text-black"
+              onChange={e => setTvShowSeason(parseInt(e.target.value as string))}
+            />{' '}
+            <span>Enter the number of season</span>
+          </div>
+        </>
+      ) : (
+        <> </>
+      )}
+      {isTV ? (
+        <div className="flex h-[30rem] justify-between w-full">
+          <iframe
+            src={`https://fsapi.xyz/tv-tmdb/${id}-${tvShowSeason}-${tvShowValue}`}
+            frameBorder="0"
+            scrolling="no"
+            height="100%"
+            width="100%"
+          ></iframe>
+          <iframe
+            src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
+            frameBorder="0"
+            scrolling="no"
+            height="100%"
+            width="100%"
+          ></iframe>
+        </div>
+      ) : (
+        <div className="flex h-[30rem] justify-between w-full">
           <iframe
             src={`https://fsapi.xyz/tmdb-movie/${id}`}
             frameBorder="0"
             scrolling="no"
-            className="w-[30rem] h-[30rem] "
+            height="100%"
+            width="100%"
           ></iframe>
 
           <iframe
             src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}
             frameBorder="0"
             scrolling="no"
-            className="w-[30rem] h-[30rem] "
+            height="100%"
+            width="100%"
           ></iframe>
-        </>
+        </div>
       )}
 
       <VerticalCardCarousel dataList={similarTitlesList} name={`Similar ${isTV ? 'Shows' : 'Movies'}`} />

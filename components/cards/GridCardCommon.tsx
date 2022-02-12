@@ -3,7 +3,7 @@ import NextImage from 'next/image';
 import { ITitleDetails } from '../../utils/types';
 
 const GridCardCommon = ({ categories, description, title, posterImg }: ITitleDetails) => {
-  console.log(description.split(' ').slice(0, 20).join(' '));
+
   return (
     <div  className=" w-full h-full  rounded-md z-100">
       <NextImage layout="fill" className="h-full object-cover hover:opacity-[.1] rounded-md" src={posterImg} alt={title} />

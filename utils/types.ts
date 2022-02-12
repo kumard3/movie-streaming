@@ -4,6 +4,7 @@ export interface ITitleDetails {
   coverImg: string;
   year: number;
   categories: string[];
+  seasons: string[];
   description: string;
   id: number;
   mediaType: 'movies' | 'tv';
