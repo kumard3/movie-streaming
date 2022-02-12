@@ -1,25 +1,38 @@
-/* eslint-disable @next/next/link-passhref */
-import Link from 'next/link';
-import * as React from 'react';
+import { InferGetStaticPropsType } from 'next';
 
-export default function Home() {
-  return (
-      <main className="flex justify-center items-center w-full h-full">
-        <section className='bg-white flex justify-center items-center w-full'>
-          <div className=' flex flex-col text-3xl justify-center font-bold items-center min-h-screen text-center'>
-            <h1 className='text-4xl'>Next.js + Tailwind CSS + TypeScript Starter</h1>
-            <p className='mt-2 text-xl text-gray-800'>
-              A starter for Next.js, Tailwind CSS, and TypeScript with Seo.
-            </p>
-            <p className='mt-[1rem] text-lg '>
-              <Link href='https://github.com/Cyphen12/tailwind-typescript-starter'>
-                <span className='bg-green-400 p-2  text-black/70 rounded font-bold shadow-xl '>
-                See the repository
-                </span>
-              </Link>
-            </p>
-          </div>
-        </section>
-      </main>
-  );
-}
+import FullPage from '../components/pageReuse/FullPage';
+import { popularMovies, popularShows, topRatedMovies, topRatedShows } from '../utils/apiResp';
+
+const AppHome = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { heroList, popularMoviesList, popularShowsList, topRatedMoviesList, topRatedShowsList } = props;
+
+  const pageLists = [
+    { name: 'Popular Movies', dataList: popularMoviesList },
+    { name: 'Popular Shows', dataList: popularShowsList },
+    { name: 'Top Rated Movies', dataList: topRatedMoviesList },
+    { name: 'Top Rated Shows', dataList: topRatedShowsList },
+  ];
+
+  return <FullPage pageTitle="Home" heroList={heroList} pageLists={pageLists} />;
+};
+
+export const getStaticProps = async () => {
+  const popularMoviesList = await popularMovies();
+  const popularShowsList = await popularShows();
+  const topRatedMoviesList = await topRatedMovies();
+  const topRatedShowsList = await topRatedShows();
+  const heroList = [...popularMoviesList.slice(0, 3), ...popularShowsList.slice(0, 3)];
+
+  return {
+    props: {
+      popularMoviesList,
+      popularShowsList,
+      topRatedMoviesList,
+      topRatedShowsList,
+      heroList,
+    },
+    revalidate: 172800,
+  };
+};
+
+export default AppHome;
