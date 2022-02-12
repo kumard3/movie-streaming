@@ -5,8 +5,6 @@ import { nowPlayingShows, popularShows, topRatedShows } from '../../utils/apiRes
 
 const TVPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { heroList, nowPlayingShowsList, popularShowsList, topRatedShowsList } = props;
-  heroList, nowPlayingShowsList, popularShowsList, topRatedShowsList;
-
   const pageList = [
     { name: 'Now Playing', dataList: nowPlayingShowsList },
     { name: 'Popular TV', dataList: popularShowsList },
