@@ -24,7 +24,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
   }
   //@ts-ignore
   const { title, description, id, seasons } = singleTitleDetails;
-
+  console.log(seasons[seasons.length - 1]);
   return (
     <>
       <MetaHead pageTitle={title} />
@@ -35,75 +35,71 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         <p>{description}</p>
       </div>
       <div className="flex flex-col pb-[10rem]">
+        {isTV ? (
+          <>
+            <div className="flex flex-col ">
+              <span>episode_count {seasons[seasons.length - 1].episode_count}</span>
+              <span>.season_number {seasons[seasons.length - 1].season_number} </span>
+              <span>name {seasons[seasons.length - 1].name} </span>
+            </div>
 
-      {isTV ? (
-        <>
-          {seasons.map((season: any) => {
-            return (
-              <div className="flex flex-col ">
-                <span>episode_count {season.episode_count}</span>
-                <span>.season_number {season.season_number} </span>
-                <span>name {season.name} </span>
-              </div>
-            );
-          })}
-          <div className="flex flex-col">
-            <input
-              type="number"
-              value={tvShowValue}
-              className="text-black"
-              onChange={e => setTvShowValue(parseInt(e.target.value as string))}
-            />{' '}
-            <span>Enter the number of episode</span>
-            <input
-              type="number"
-              value={tvShowSeason}
-              className="text-black"
-              onChange={e => setTvShowSeason(parseInt(e.target.value as string))}
-            />{' '}
-            <span>Enter the number of season</span>
+            <div className="flex flex-col">
+              <input
+                type="number"
+                value={tvShowValue}
+                className="text-black"
+                onChange={e => setTvShowValue(parseInt(e.target.value as string))}
+              />{' '}
+              <span>Enter the number of episode</span>
+              <input
+                type="number"
+                value={tvShowSeason}
+                className="text-black"
+                onChange={e => setTvShowSeason(parseInt(e.target.value as string))}
+              />{' '}
+              <span>Enter the number of season</span>
+            </div>
+          </>
+        ) : (
+          <> </>
+        )}
+        {isTV ? (
+          <div className="flex h-[30rem] justify-between w-full flex-wrap">
+            <iframe
+              src={`https://fsapi.xyz/tv-tmdb/${id}-${tvShowSeason}-${tvShowValue}`}
+              frameBorder="0"
+              scrolling="no"
+              height="100%"
+              width="100%"
+            ></iframe>
+            <iframe
+              src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
+              frameBorder="0"
+              scrolling="no"
+              height="100%"
+              width="100%"
+            ></iframe>
           </div>
-        </>
-      ) : (
-        <> </>
-      )}
-      {isTV ? (
-        <div className="flex h-[30rem] justify-between w-full flex-wrap">
-          <iframe
-            src={`https://fsapi.xyz/tv-tmdb/${id}-${tvShowSeason}-${tvShowValue}`}
-            frameBorder="0"
-            scrolling="no"
-            height="100%"
-            width="100%"
-          ></iframe>
-          <iframe
-            src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
-            frameBorder="0"
-            scrolling="no"
-            height="100%"
-            width="100%"
-          ></iframe>
-        </div>
-      ) : (
-        <div className="flex h-[30rem] justify-between w-full flex-wrap my-[10rem]">
-          <iframe
-            src={`https://fsapi.xyz/tmdb-movie/${id}`}
-            frameBorder="0"
-            scrolling="no"
-            height="100%"
-            width="100%"
-          ></iframe>
+        ) : (
+          <div className="flex h-[30rem] justify-between w-full flex-wrap my-[10rem]">
+            <iframe
+              src={`https://fsapi.xyz/tmdb-movie/${id}`}
+              frameBorder="0"
+              scrolling="no"
+              height="100%"
+              width="100%"
+            ></iframe>
 
-          <iframe
-            src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}
-            frameBorder="0"
-            scrolling="no"
-            height="100%"
-            width="100%"
-            className="py-10"
-          ></iframe>
-        </div>
-      )}
+            <iframe
+              src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}
+              frameBorder="0"
+              scrolling="no"
+              height="100%"
+              width="100%"
+              className="py-10"
+            ></iframe>
+          </div>
+        )}
       </div>
 
       <div className="relative top-[23rem] ">
