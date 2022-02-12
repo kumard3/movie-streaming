@@ -106,7 +106,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
       )}
       </div>
 
-      <div className="relative top-[23rem] sm:top-0">
+      <div className="relative top-[23rem] ">
         <VerticalCardCarousel dataList={similarTitlesList} name={`Similar ${isTV ? 'Shows' : 'Movies'}`} />
       </div>
     </>
