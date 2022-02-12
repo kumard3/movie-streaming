@@ -18,7 +18,7 @@ const SearchPage = ({ dataList }: InferGetStaticPropsType<typeof getStaticProps>
   const searchQuery = query.id as string;
 
   const term = `Search results for ${searchQuery}`;
-  // console.log(dataList);
+  dataList;
   return (
     <>
       <MetaHead pageTitle={term} />

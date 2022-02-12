@@ -19,7 +19,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
   }
 
   const { title, description } = singleTitleDetails;
-  // console.log(singleTitleDetails);
+  singleTitleDetails;
 
   return (
     <>

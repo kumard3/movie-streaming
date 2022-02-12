@@ -47,7 +47,6 @@ const getList = async ({ isTV, path }: apiFetcherArgs): Promise<ITitleDetails[]>
 
   if (resp.ok) {
     const { results } = await resp.json();
-    // console.log(results);
     return (results as any[]).map(i => ({
       categories: getGenreNames({ arr: i.genre_ids, isTV }),
       ...getDetails(i, isTV),
@@ -58,10 +57,10 @@ const getList = async ({ isTV, path }: apiFetcherArgs): Promise<ITitleDetails[]>
 };
 const getShowList = async ({ isTV, path }: apiFetcherArgs): Promise<ITitleDetails[]> => {
   const resp = await fetch(url({ path, query: 'page=1' }));
-  // console.log(resp);
+  // .log(resp);
   if (resp.ok) {
     const { results } = await resp.json();
-    // console.log(results);
+    // .log(results);
     return (results as any[]).map(i => ({
       categories: getGenreNames({ arr: i.genre_ids, isTV }),
       ...getDetails(i, isTV),
