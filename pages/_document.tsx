@@ -16,7 +16,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" href="/images/favicon.png" />
           <link rel="manifest" href="/manifest.json" />
         </Head>
-        <body className="bg-bgFull text-textNormal">
+        <body className="bg-black text-textNormal">
           <Main />
           <NextScript />
         </body>

@@ -17,7 +17,7 @@ const AppHeader = () => {
   useEffect(() => setExpandMenu(false), [asPath]);
 
   return (
-    <header className="sticky top-0 bg-bgFull" style={{ zIndex: 99 }}>
+    <header className="sticky top-0 bg-black" style={{ zIndex: 99 }}>
       <div className="sm:hidden w-full flex justify-between items-center relative">
         <AppHeading />
         <button aria-label="expand menu" className={iconButtonClass} onClick={toggleMenu}>
@@ -32,7 +32,7 @@ const AppHeader = () => {
           </svg>
         </button>
         {expandMenu ? (
-          <div className="absolute top-14 w-full bg-bgFull flex flex-col pt-2 pb-6">
+          <div className="absolute top-14 w-full bg-black flex flex-col pt-2 pb-6">
             <NavItem name="TV" />
             <NavItem name="Movies" />
             <div className="mb-2"></div>
@@ -41,14 +41,15 @@ const AppHeader = () => {
         ) : null}
       </div>
       <div className="hidden sm:flex w-full justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex items-center justify-between w-full">
           <AppHeading />
+          <SearchBar setValue={setValue} value={value} />
+
           <nav>
             <NavItem name="TV" />
             <NavItem name="Movies" />
           </nav>
         </div>
-        <SearchBar setValue={setValue} value={value} />
       </div>
     </header>
   );
