@@ -1,5 +1,6 @@
 import NextImage from 'next/image';
 
+
 import { ITitleDetails } from '../../utils/types';
 
 const GridCardCommon = ({ categories, description, title, posterImg }: ITitleDetails) => {

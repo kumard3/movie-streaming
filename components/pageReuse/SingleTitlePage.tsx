@@ -71,7 +71,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               height="100%"
               width="100%"
               allowFullScreen
-              autoSave='on'
+              autoSave="on"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
             <iframe
               src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
@@ -80,7 +81,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               height="100%"
               width="100%"
               allowFullScreen
-              autoSave='on'
+              autoSave="on"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
           </div>
         ) : (
@@ -92,7 +94,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               height="100%"
               width="100%"
               allowFullScreen
-              autoSave='on'
+              autoSave="on"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
 
             <iframe
@@ -103,7 +106,9 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               width="100%"
               className="py-10"
               allowFullScreen
-              autoSave='on'
+
+              autoSave="on"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
           </div>
         )}
