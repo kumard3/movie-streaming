@@ -24,7 +24,6 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
   }
   //@ts-ignore
   const { title, description, id, seasons } = singleTitleDetails;
-  console.log(seasons[seasons.length - 1]);
   return (
     <>
       <MetaHead pageTitle={title} />
@@ -71,6 +70,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               scrolling="no"
               height="100%"
               width="100%"
+              allowFullScreen
+              autoSave='on'
             ></iframe>
             <iframe
               src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
@@ -78,6 +79,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               scrolling="no"
               height="100%"
               width="100%"
+              allowFullScreen
+              autoSave='on'
             ></iframe>
           </div>
         ) : (
@@ -88,6 +91,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               scrolling="no"
               height="100%"
               width="100%"
+              allowFullScreen
+              autoSave='on'
             ></iframe>
 
             <iframe
@@ -97,6 +102,8 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               height="100%"
               width="100%"
               className="py-10"
+              allowFullScreen
+              autoSave='on'
             ></iframe>
           </div>
         )}
