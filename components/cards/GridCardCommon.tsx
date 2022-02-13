@@ -1,12 +1,12 @@
-// import NextImage from 'next/image';
+import NextImage from 'next/image';
 
 import { ITitleDetails } from '../../utils/types';
 
 const GridCardCommon = ({ categories, description, title, posterImg }: ITitleDetails) => {
   return (
     <div className=" w-full h-full  rounded-md z-100">
-      <img
-
+      <NextImage
+        layout="fill"
         className="h-full object-cover hover:opacity-[.1] rounded-md"
         src={posterImg}
         alt={title}
