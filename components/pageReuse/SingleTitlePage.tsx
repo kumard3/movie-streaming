@@ -74,7 +74,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               autoSave="on"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
-            <iframe
+<!--             <iframe
               src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
               frameBorder="0"
               scrolling="no"
@@ -83,7 +83,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               allowFullScreen
               autoSave="on"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe>
+            ></iframe> -->
           </div>
         ) : (
           <div className="flex h-[30rem] justify-between w-full flex-wrap my-[10rem]">
@@ -98,7 +98,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
 
-            <iframe
+<!--             <iframe
               src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}
               frameBorder="0"
               scrolling="no"
@@ -109,7 +109,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
 
               autoSave="on"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe>
+            ></iframe> -->
           </div>
         )}
       </div>
