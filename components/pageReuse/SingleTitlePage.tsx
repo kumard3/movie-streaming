@@ -74,16 +74,6 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               autoSave="on"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
-<!--             <iframe
-              src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
-              frameBorder="0"
-              scrolling="no"
-              height="100%"
-              width="100%"
-              allowFullScreen
-              autoSave="on"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe> -->
           </div>
         ) : (
           <div className="flex h-[30rem] justify-between w-full flex-wrap my-[10rem]">
@@ -97,19 +87,6 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               autoSave="on"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
-
-<!--             <iframe
-              src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}
-              frameBorder="0"
-              scrolling="no"
-              height="100%"
-              width="100%"
-              className="py-10"
-              allowFullScreen
-
-              autoSave="on"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe> -->
           </div>
         )}
       </div>
