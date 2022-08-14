@@ -65,7 +65,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         {isTV ? (
           <div className="flex h-[30rem] justify-between w-full flex-wrap">
             <iframe
-              src={`https://fsapi.xyz/tv-tmdb/${id}-${tvShowSeason}-${tvShowValue}`}
+              src={`https://tmdbapi.xyz/tv-tmdb/${id}-${tvShowSeason}-${tvShowValue}`}
               frameBorder="0"
               scrolling="no"
               height="100%"
@@ -78,7 +78,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         ) : (
           <div className="flex h-[30rem] justify-between w-full flex-wrap my-[10rem]">
             <iframe
-              src={`https://fsapi.xyz/tmdb-movie/${id}`}
+              src={`https://tmdbapi.xyz/tmdb-movie/${id}`}
               frameBorder="0"
               scrolling="no"
               height="100%"
