@@ -64,8 +64,9 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         )}
         {isTV ? (
           <div className="flex h-[30rem] justify-between w-full flex-wrap">
+            {/* https://vidsrc.pro/embed/tv/{tmdb_id}/{season_number}/{episode_number} */}
             <iframe
-              src={`https://tmdbapi.xyz/tmdb/series/?video_id=${id}&s=${tvShowSeason}&e=${tvShowValue}`}
+              src={`https://vidsrc.pro/embed/tv/${id}/${tvShowSeason}/${tvShowValue}`}
               frameBorder="0"
               scrolling="no"
               height="100%"
@@ -78,7 +79,7 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
         ) : (
           <div className="flex h-[30rem] justify-between w-full flex-wrap my-[10rem]">
             <iframe
-              src={`https://tmdbapi.xyz/tmdb/films/?video_id=${id}`}
+              src={`https://vidsrc.pro/embed/movie/${id}`}
               frameBorder="0"
               scrolling="no"
               height="100%"
@@ -86,6 +87,22 @@ const SingleTitlePage = ({ isTV, similarTitlesList, singleTitleDetails }: Single
               allowFullScreen
               autoSave="on"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+            <iframe
+              id="ve-iframe"
+              src={`https://www.2embed.stream/embed/movie/${id}`}
+              width="100%"
+              height="100%"
+              allowFullScreen
+              frameBorder="0"
+            ></iframe>{' '}
+            <iframe
+              id="ve-iframe"
+              src={`https://vidsrc.in/embed/movie?tmdb=${id}`}
+              width="100%"
+              height="100%"
+              allowFullScreen
+              frameBorder="0"
             ></iframe>
           </div>
         )}

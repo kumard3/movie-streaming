@@ -84,7 +84,7 @@ export default function NavComponent() {
                         <div className="mt-[5rem] z-10 relative">
                           <nav className="grid gap-y-8">
                             {navData.map((item) => (
-                              <a
+                              <Link
                                 key={item.name}
                                 href={item.href}
                                 className="-m-3 p-3 flex items-center rounded-md hover:bg-black  border-[1px] border-red-500/60"
@@ -92,7 +92,7 @@ export default function NavComponent() {
                                 <h1 className="my-3 ml-3 text-3xl font-bold ">
                                   {item.name}
                                 </h1>
-                              </a>
+                              </Link>
                             ))}
                           </nav>
                         </div>

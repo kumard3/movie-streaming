@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 
 const AppHeading = () => (
   <NextLink href="/">
-    <a className="text-2xl font-bold mr-8 py-5 text-textHighlight">Movie.Db</a>
+    <p className="text-2xl font-bold mr-8 py-5 text-textHighlight">Movie.Db</p>
   </NextLink>
 );
 
