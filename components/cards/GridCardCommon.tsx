@@ -1,6 +1,5 @@
 import NextImage from 'next/image';
 
-
 import { ITitleDetails } from '../../utils/types';
 
 const GridCardCommon = ({ categories, description, title, posterImg }: ITitleDetails) => {
@@ -11,6 +10,7 @@ const GridCardCommon = ({ categories, description, title, posterImg }: ITitleDet
         className="h-full object-cover hover:opacity-[.1] rounded-md"
         src={posterImg}
         alt={title}
+        unoptimized
       />
       <div className="absolute bottom-0 w-full h-1/2 rounded-md text-xs transition-opacity opacity-0 group-hover:opacity-100 bg-gradient-to-t from-bg2 via-bg2 to-transparent">
         <div className="b absolute bottom-0 z-20 flex flex-col space-y-1 text-xs w-full p-4">
